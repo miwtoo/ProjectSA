@@ -1,0 +1,9 @@
+a:visited , a:link {
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+.logo {
+    margin-right: 30px;
+    margin-left: 20px;
+}
