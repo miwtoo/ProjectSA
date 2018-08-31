@@ -251,7 +251,7 @@ module.exports = "mat-grid-tile {\r\n    background: lightblue;\r\n  }"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  เพิ่มสินค้า\n</h1>\n\n<div class=\"center\">\n  <form>\n    <mat-form-field>\n      รหัสสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ชื่อสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ประเภท : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ราคา : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      จำนวน : <input matInput>\n    </mat-form-field>\n  </form>\n</div>\n"
+module.exports = "<h1>\n  เพิ่มสินค้า\n</h1>\n\n<div class=\"center\">\n  <form>\n    <mat-form-field>\n      รหัสสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ชื่อสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ประเภท : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ราคา : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      จำนวน : <input matInput>\n    </mat-form-field><br>\n    <button mat-stroked-button color=\"primary\">เพิ่ม</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -440,7 +440,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  take-item works!\n</p>\n"
+module.exports = "<h1>\n  เบิกสินค้า\n</h1>\n\n<div class=\"center\">\n  <form>\n    <mat-form-field>\n      รหัสสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      ชื่อสินค้า : <input matInput>\n    </mat-form-field><br>\n    <mat-form-field>\n      จำนวน : <input matInput>\n    </mat-form-field><br>\n    <button mat-stroked-button color=\"primary\">เบิก</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
