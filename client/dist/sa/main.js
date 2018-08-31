@@ -303,7 +303,7 @@ var AddItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "table {\r\n    width: 100%;\r\n  }"
 
 /***/ }),
 
@@ -314,7 +314,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  history works!\n</p>\n"
+module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!--- Note that these columns can be defined in any order.\n        The actual rendered columns are set as a property on the row definition\" -->\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> ชื่อผู้เบิก </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"item_name\">\n    <th mat-header-cell *matHeaderCellDef> ชื่อสินค้า </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.item_name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"amount\">\n    <th mat-header-cell *matHeaderCellDef> จำนวน </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.amount}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"time\">\n    <th mat-header-cell *matHeaderCellDef> เวลา </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.time}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -339,8 +339,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+var ELEMENT_DATA = [
+    { name: "1", item_name: "", amount: 0, time: "" },
+    { name: "2", item_name: "", amount: 0, time: "" },
+    { name: "3", item_name: "", amount: 0, time: "" },
+    { name: "4", item_name: "", amount: 0, time: "" },
+    { name: "5", item_name: "", amount: 0, time: "" },
+];
 var HistoryComponent = /** @class */ (function () {
     function HistoryComponent() {
+        this.displayedColumns = ['name', 'item_name', 'amount', 'time'];
+        this.dataSource = ELEMENT_DATA;
     }
     HistoryComponent.prototype.ngOnInit = function () {
     };
@@ -366,7 +375,7 @@ var HistoryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "table {\r\n    width: 100%;\r\n  }"
 
 /***/ }),
 
@@ -377,7 +386,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  item list work\n</p>"
+module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!--- Note that these columns can be defined in any order.\n        The actual rendered columns are set as a property on the row definition\" -->\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"id\">\n    <th mat-header-cell *matHeaderCellDef> รหัสสินค้า </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> ชื่อสินค้า </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"type\">\n    <th mat-header-cell *matHeaderCellDef> ประเภทสินค้า </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.type}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"price\">\n    <th mat-header-cell *matHeaderCellDef> ราคา </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.price}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"amount\">\n    <th mat-header-cell *matHeaderCellDef> จำนวน </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.amount}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -402,8 +411,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+var ELEMENT_DATA = [
+    { id: "1", name: "", type: "", price: 0, amount: 0 },
+    { id: "2", name: "", type: "", price: 0, amount: 0 },
+    { id: "3", name: "", type: "", price: 0, amount: 0 },
+    { id: "4", name: "", type: "", price: 0, amount: 0 },
+];
 var ItemListComponent = /** @class */ (function () {
     function ItemListComponent() {
+        this.displayedColumns = ['id', 'name', 'type', 'price', 'amount'];
+        this.dataSource = ELEMENT_DATA;
     }
     ItemListComponent.prototype.ngOnInit = function () {
     };
