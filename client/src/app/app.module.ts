@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule,MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,MatGridListModule,MatTabsModule,MatSelectModule} from '@angular/material';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import { MatTableModule,MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,MatGridListModule,MatTabsModule,MatSelectModule,MatIconModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,7 +21,6 @@ const appRoutes: Routes = [
   { path: "item-list" , component: ItemListComponent },
   { path: "take-item" , component: TakeItemComponent },
   { path: "history" , component: HistoryComponent }
-
 ];
 
 @NgModule({
@@ -44,6 +45,9 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatSelectModule,
     MatTableModule,
+    MatIconModule,
+    CdkTableModule,
+    CdkTreeModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
