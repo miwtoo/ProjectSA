@@ -7,6 +7,7 @@ import { MatTableModule,MatButtonModule, MatCardModule, MatInputModule, MatListM
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import {LayoutModule} from '@angular/cdk/layout';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddItemComponent } from './routing/add-item/add-item.component';
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatIconModule,
     FormsModule,
+    LayoutModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

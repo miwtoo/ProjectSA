@@ -7,3 +7,11 @@ a:visited , a:link {
     margin-right: 30px;
     margin-left: 20px;
 }
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
