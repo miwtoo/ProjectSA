@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
 import { MatTableModule,MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,MatGridListModule,MatTabsModule,MatSelectModule,MatIconModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddItemComponent } from './routing/add-item/add-item.component';
 import { ItemListComponent } from './routing/item-list/item-list.component';
 import { TakeItemComponent } from './routing/take-item/take-item.component';
 import { HistoryComponent } from './routing/history/history.component';
+
 
 const appRoutes: Routes = [
   { path: "" , component: AddItemComponent },
@@ -46,8 +46,6 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTableModule,
     MatIconModule,
-    CdkTableModule,
-    CdkTreeModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
