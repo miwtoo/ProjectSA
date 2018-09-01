@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
   name: string;
-  item_name:string;
+  item_id:string;
   amount: number;
   time: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {name: "1", item_name: "", amount: 0, time: ""},
-  {name: "2", item_name: "", amount: 0, time: ""},
-  {name: "3", item_name: "", amount: 0, time: ""},
-  {name: "4", item_name: "", amount: 0, time: ""},
-  {name: "5", item_name: "", amount: 0, time: ""},
+  {name: "นาย วงศกร ชูเกษม", item_id: "PSU004", amount: 5, time: "5 สิงหาคม 2561, 10:20 น."},
+  {name: "นาย ศรัญยู เงาศรี", item_id: "ZXP003", amount: 10, time: "5 สิงหาคม 2561, 16:00 น."},
+  {name: "นาย ศรัญยู เงาศรี", item_id: "IPX002", amount: 5, time: "5 สิงหาคม 2561, 16:10 น."},
+  {name: "นาย วงศกร ชูเกษม", item_id: "PSU001", amount: 5, time: "6 สิงหาคม 2561, 10:00 น."},
+  {name: "นาย ชาญชัย นนทะชัย", item_id: "ZXP003", amount: 10, time: "6 สิงหาคม 2561, 16:00 น."},
 ];
 @Component({
   selector: 'app-history',
@@ -21,7 +21,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class HistoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'item_name', 'amount', 'time'];
+  displayedColumns: string[] = ['name', 'item_id', 'amount', 'time'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }
