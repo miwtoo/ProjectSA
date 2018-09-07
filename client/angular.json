@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/flexboxgrid.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           },

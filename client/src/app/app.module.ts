@@ -49,6 +49,7 @@ const appRoutes: Routes = [
     MatIconModule,
     FormsModule,
     LayoutModule,
+    
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
