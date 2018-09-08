@@ -12,14 +12,10 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int user_id;
 
-    @OneToMany( mappedBy = "user_id",
-                cascade = CascadeType.ALL,
-                orphanRemoval = true)
+    @OneToMany( mappedBy = "user_id")
     private List<TakeIn> takein = new ArrayList<>();
 
-    @OneToMany( mappedBy = "user_id",
-                cascade = CascadeType.ALL,
-                orphanRemoval = true)
+    @OneToMany( mappedBy = "user_id")
     private List<Withdraw> withdraw = new ArrayList<>();
 
     private String user_name;

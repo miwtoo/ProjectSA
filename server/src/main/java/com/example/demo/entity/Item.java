@@ -12,14 +12,10 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int item_id;
 
-    @OneToMany( mappedBy = "item_id",
-                cascade = CascadeType.ALL,
-                orphanRemoval = true)
+    @OneToMany( mappedBy = "item_id")
     private List<TakeIn> takein = new ArrayList<>();
 
-    @OneToMany( mappedBy = "item_id",
-                cascade = CascadeType.ALL,
-                orphanRemoval = true)
+    @OneToMany( mappedBy = "item_id")
     private List<Withdraw> withdraw = new ArrayList<>();
 
     private String item_name;
