@@ -1,6 +1,10 @@
 package com.example.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +20,14 @@ import lombok.Data;
 @Table(name = "Item")
 public class Item {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int item_id;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<TakeIn> takein = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Withdraw> withdraw = new ArrayList<>();
 
     private String item_name;
     private float price;
@@ -28,6 +38,7 @@ public class Item {
     private TypeList type;
     
     protected Item(){}
+
 
     public Item(String item_name, float price,int amount, int type){
         this.item_name = item_name;

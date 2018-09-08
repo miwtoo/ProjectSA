@@ -17,7 +17,7 @@ public class DemoApplication {
 	}
 
 	@Bean
-    ApplicationRunner init(TypeListRepository typeListRepository, ItemRepository itemRepository) {
+    ApplicationRunner init(TypeListRepository typeListRepository, ItemRepository itemRepository, UserRepository userRepository, TakeInRepository takeInRepository, WithDrawRepository withDrawRepository) {
         return args -> {
             Stream.of("เวชสำอาง/ครีมบำรุงผิว","ผลิตภัณฑ์เสริมอาหาร","สมุนไพรยาแผนโบราณ").forEach(name -> {
                 TypeList allType = new TypeList();
@@ -25,12 +25,24 @@ public class DemoApplication {
                 typeListRepository.save(allType);
             });
 			typeListRepository.findAll().forEach(System.out::println);
-			
-			TypeList list = new TypeList();
-			list.setType_id(1);
 
-			itemRepository.save(new Item("Item 1",255.9f,1, 4));
+
+			itemRepository.save(new Item("Item 1",255.598f,5, 3));
+			itemRepository.save(new Item("Item 2",588.754f,10, 2));
+            itemRepository.save(new Item("Item 3",455.55548f,4, 1));
             itemRepository.findAll().forEach(System.out::println);
+
+
+            userRepository.save(new User("Miwtoo", "CEO"));
+            userRepository.save(new User("Miwtree", "Pharmacy"));
+            userRepository.save(new User("Miwfour", "Pharmacy"));
+            userRepository.findAll().forEach(System.out::println);
+            
+            takeInRepository.save(new TakeIn(1, 1, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.findAll().forEach(System.out::println);
+
+            withDrawRepository.save(new Withdraw(1, 1, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.findAll().forEach(System.out::println);
         };
     }
 }
