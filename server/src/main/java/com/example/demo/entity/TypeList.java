@@ -12,4 +12,10 @@ public class TypeList {
     private int type_id;
 
     private String type;
+
+    public TypeList(){}
+
+    public TypeList(String type){
+        this.type = type;
+    }
 }
