@@ -1,32 +1,25 @@
 package com.example.demo.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import lombok.Data;
+import java.util.*;
+import javax.persistence.*;
+import lombok.*;
 
 @Entity
-@Data
+@Getter @Setter
 @Table(name = "Item")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int item_id;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany( mappedBy = "item_id",
+                cascade = CascadeType.ALL,
+                orphanRemoval = true)
     private List<TakeIn> takein = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany( mappedBy = "item_id",
+                cascade = CascadeType.ALL,
+                orphanRemoval = true)
     private List<Withdraw> withdraw = new ArrayList<>();
 
     private String item_name;
@@ -39,6 +32,10 @@ public class Item {
     
     protected Item(){}
 
+
+    public Item(int item_id){
+        this.item_id = item_id;
+    }
 
     public Item(String item_name, float price,int amount, int type){
         this.item_name = item_name;
