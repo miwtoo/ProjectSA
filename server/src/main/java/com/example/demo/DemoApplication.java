@@ -38,7 +38,7 @@ public class DemoApplication {
             userRepository.save(new User("Miwfour", "Pharmacy"));
             userRepository.findAll().forEach(System.out::println);
             
-            takeInRepository.save(new TakeIn(1, 1, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2, 1, 5, "11:12", "11 มกราคม 2560"));
             takeInRepository.findAll().forEach(System.out::println);
 
             withDrawRepository.save(new Withdraw(1, 1, 5, "11:12", "11 มกราคม 2560"));

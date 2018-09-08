@@ -2,6 +2,9 @@ package com.example.demo.entity;
 
 import java.util.*;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.*;
 
 @Entity
@@ -13,9 +16,11 @@ public class Item {
     private int item_id;
 
     @OneToMany( mappedBy = "item_id")
+    @JsonManagedReference
     private List<TakeIn> takein = new ArrayList<>();
 
     @OneToMany( mappedBy = "item_id")
+    @JsonManagedReference
     private List<Withdraw> withdraw = new ArrayList<>();
 
     private String item_name;

@@ -1,6 +1,9 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.*;
 
 @Entity
@@ -13,10 +16,12 @@ public class Withdraw {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
+    @JsonBackReference
     private User user_id;
 
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="item_id")
+    @JsonBackReference
     private Item item_id;
 
     private int amount;
