@@ -5,7 +5,7 @@ import java.util.Collection;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +16,7 @@ public class UserController{
         this.repo = repo;
     }
 
-    @RequestMapping("/user")
+    @GetMapping("/user")
     public Collection<User> user(){
         return repo.findAll();
     }

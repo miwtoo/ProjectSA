@@ -5,7 +5,7 @@ import java.util.Collection;
 import com.example.demo.entity.Withdraw;
 import com.example.demo.repository.WithDrawRepository;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +16,7 @@ public class WithdrawController{
         this.repo = repo;
     }
 
-    @RequestMapping("/withdraw")
+    @GetMapping("/withdraw")
     public Collection<Withdraw> withdraws(){
         return repo.findAll();
     }

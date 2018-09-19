@@ -5,7 +5,7 @@ import java.util.Collection;
 import com.example.demo.entity.TakeIn;
 import com.example.demo.repository.TakeInRepository;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,8 +16,8 @@ public class TakeInController{
         this.repo = repo;
     }
 
-    @RequestMapping("/take-in")
-    public Collection<TakeIn> takein(){
+    @GetMapping("/take-in")
+    public Collection<TakeIn> takeinAll(){
         return repo.findAll();
     }
 }
