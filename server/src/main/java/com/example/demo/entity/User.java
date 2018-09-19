@@ -9,14 +9,14 @@ import lombok.*;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int user_id;
+    private Long user_id;
 
     private String user_name;
     private String position;
 
     protected User(){}
 
-    public User(int user_id){
+    public User(Long user_id){
         this.user_id = user_id;
     }
 

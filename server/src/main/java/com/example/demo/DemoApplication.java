@@ -29,9 +29,9 @@ public class DemoApplication {
 			typeListRepository.findAll().forEach(System.out::println);
 
 
-			itemRepository.save(new Item("Item 1",255.598f,5, 3));
-			itemRepository.save(new Item("Item 2",588.754f,10, 2));
-            itemRepository.save(new Item("Item 3",455.55548f,4, 1));
+			itemRepository.save(new Item("Item 1",255.598f,1,  1L));
+			itemRepository.save(new Item("Item 2",588.754f,10, 2L));
+            itemRepository.save(new Item("Item 3",455.55548f,4, 1L));
             itemRepository.findAll().forEach(System.out::println);
 
 
@@ -40,26 +40,26 @@ public class DemoApplication {
             userRepository.save(new User("Miwfour", "Pharmacy"));
             userRepository.findAll().forEach(System.out::println);
             
-            takeInRepository.save(new TakeIn(1, 1, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(1, 2, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(1, 3, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(2, 1, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(2, 2, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(2, 3, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(3, 1, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(3, 2, 5, "11:12", "11 มกราคม 2560"));
-            takeInRepository.save(new TakeIn(3, 3, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(1L, 1L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(1L, 2L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(1L, 3L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2L, 1L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2L, 2L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2L, 3L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3L, 1L, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3L, 2l, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3L, 3l, 5, "11:12", "11 มกราคม 2560"));
             takeInRepository.findAll().forEach(System.out::println);
 
-            withDrawRepository.save(new Withdraw(1, 1, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(1, 2, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(1, 3, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(2, 1, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(2, 2, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(2, 3, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(3, 1, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(3, 2, 5, "11:12", "11 มกราคม 2560"));
-            withDrawRepository.save(new Withdraw(3, 3, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(1L, 1l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(1l, 2l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(1l, 3l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2l, 1l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2l, 2l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2l, 3l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3l, 1l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3l, 2l, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3l, 3l, 5, "11:12", "11 มกราคม 2560"));
             withDrawRepository.findAll().forEach(System.out::println);
         };
     }

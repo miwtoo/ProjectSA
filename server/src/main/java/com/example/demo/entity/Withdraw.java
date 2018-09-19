@@ -9,7 +9,7 @@ import lombok.*;
 public class Withdraw {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     
     @ManyToOne()
     @JoinColumn(name="user_id")
@@ -27,7 +27,7 @@ public class Withdraw {
 
     
 
-    public Withdraw(int user_id , int item_id, int amount, String time, String date){
+    public Withdraw(Long user_id , Long item_id, int amount, String time, String date){
     
         User user = new User(user_id);
         Item item = new Item(item_id);

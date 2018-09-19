@@ -9,7 +9,7 @@ import lombok.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int item_id;
+    private Long item_id;
 
     private String item_name;
     private float price;
@@ -22,11 +22,11 @@ public class Item {
     protected Item(){}
 
 
-    public Item(int item_id){
+    public Item(Long item_id){
         this.item_id = item_id;
     }
 
-    public Item(String item_name, float price,int amount, int type){
+    public Item(String item_name, float price,int amount, Long type) {
         this.item_name = item_name;
         this.price = price;
         this.amount = amount;

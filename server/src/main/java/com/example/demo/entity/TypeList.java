@@ -9,7 +9,7 @@ import lombok.*;
 public class TypeList {
     @Id
     @GeneratedValue
-    private int type_id;
+    private Long type_id;
 
     private String type;
 
