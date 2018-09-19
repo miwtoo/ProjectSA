@@ -19,6 +19,8 @@ public class DemoApplication {
 	@Bean
     ApplicationRunner init(TypeListRepository typeListRepository, ItemRepository itemRepository, UserRepository userRepository, TakeInRepository takeInRepository, WithDrawRepository withDrawRepository) {
         return args -> {
+
+            
             Stream.of("เวชสำอาง/ครีมบำรุงผิว","ผลิตภัณฑ์เสริมอาหาร","สมุนไพรยาแผนโบราณ").forEach(name -> {
                 TypeList allType = new TypeList();
                 allType.setType(name);
@@ -38,10 +40,26 @@ public class DemoApplication {
             userRepository.save(new User("Miwfour", "Pharmacy"));
             userRepository.findAll().forEach(System.out::println);
             
+            takeInRepository.save(new TakeIn(1, 1, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(1, 2, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(1, 3, 5, "11:12", "11 มกราคม 2560"));
             takeInRepository.save(new TakeIn(2, 1, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2, 2, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(2, 3, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3, 1, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3, 2, 5, "11:12", "11 มกราคม 2560"));
+            takeInRepository.save(new TakeIn(3, 3, 5, "11:12", "11 มกราคม 2560"));
             takeInRepository.findAll().forEach(System.out::println);
 
             withDrawRepository.save(new Withdraw(1, 1, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(1, 2, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(1, 3, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2, 1, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2, 2, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(2, 3, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3, 1, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3, 2, 5, "11:12", "11 มกราคม 2560"));
+            withDrawRepository.save(new Withdraw(3, 3, 5, "11:12", "11 มกราคม 2560"));
             withDrawRepository.findAll().forEach(System.out::println);
         };
     }
