@@ -1,6 +1,12 @@
 package com.example.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -19,8 +25,16 @@ public class Item {
     @JoinColumn(name="type_id")
     private TypeList type;
     
-    protected Item(){}
+    @OneToMany(mappedBy = "item_id")
+    @JsonIgnore
+    private List<TakeIn> takein = new ArrayList<>();
 
+    @OneToMany(mappedBy = "item_id")
+    @JsonIgnore
+    private List<Withdraw> withdraw = new ArrayList<>();
+
+
+    protected Item(){}
 
     public Item(Long item_id){
         this.item_id = item_id;

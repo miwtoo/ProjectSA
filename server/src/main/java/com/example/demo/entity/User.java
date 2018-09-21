@@ -1,6 +1,13 @@
 package com.example.demo.entity;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -13,6 +20,14 @@ public class User {
 
     private String user_name;
     private String position;
+
+    @OneToMany(mappedBy = "user_id")
+    @JsonIgnore
+    private List<TakeIn> takein = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user_id")
+    @JsonIgnore
+    private List<Withdraw> withdraw = new ArrayList<>();
 
     protected User(){}
 
