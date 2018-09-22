@@ -1,12 +1,6 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient,HttpParams } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
-
-
 
 @Component({
   selector: 'app-take-item',
@@ -15,13 +9,10 @@ import { DatePipe } from '@angular/common';
 })
 
 
-
 export class TakeItemComponent implements OnInit {
 
 
   onClickSubmit(data) {
-
-    const newWithdraw = { user_id: 1 , item_id: 2 , amount:3 };
     let dateFormat = require('dateformat');
     let now = new Date();
 

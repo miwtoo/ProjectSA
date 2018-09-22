@@ -3,23 +3,26 @@
 </h1>
 <div class="row center-lg center-md start-sm start-xs">
   <div class="col-lg col-md col-sm col-xs">
-      <form action="http://localhost:8080/withdraw" method="POST" target="_blank">
+      <form #item = "ngForm"  (ngSubmit) = "onClickSubmit(item.value)">
           <mat-form-field>
-            รหัสสินค้า : <input matInput>
+            ชื่อสินค้า : <input matInput  name ="item_name" [(ngModel)]="item.item_name">
+          </mat-form-field><br>
+
+          <mat-form-field>
+           Type: <mat-select name ="type_id" [(ngModel)]="item.type_id">
+              <mat-option *ngFor="let typelist of typelists" [value]="typelist.value">
+                {{typelist.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field>
+            ราคา : <input matInput name ="price" [(ngModel)]="item.price">
           </mat-form-field><br>
           <mat-form-field>
-            ชื่อสินค้า : <input matInput>
+            จำนวน : <input matInput name ="amount" [(ngModel)]="item.amount">
           </mat-form-field><br>
-          <mat-form-field>
-            ประเภท : <input matInput>
-          </mat-form-field><br>
-          <mat-form-field>
-            ราคา : <input matInput>
-          </mat-form-field><br>
-          <mat-form-field>
-            จำนวน : <input matInput>
-          </mat-form-field><br>
-          <button mat-stroked-button color="primary">เพิ่ม</button>
+          <button type="submit" mat-stroked-button color="primary">เพิ่ม</button>
       </form>
   </div>
 </div>
