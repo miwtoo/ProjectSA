@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
     MatCardModule,
     MatInputModule,
     MatListModule,

@@ -3,16 +3,17 @@
 </h1>
 
 <div class="center">
-  <form>
+  <form #withdraw = "ngForm"  (ngSubmit) = "onClickSubmit(withdraw.value)" >
+    
     <mat-form-field>
-      รหัสสินค้า : <input matInput>
+      รหัสผู้เบิก : <input matInput name ="user_id" [(ngModel)]="withdraw.user_id">
     </mat-form-field><br>
     <mat-form-field>
-      ชื่อสินค้า : <input matInput>
+      รหัสสินค้า : <input matInput name ="item_id"  [(ngModel)]="withdraw.item_id">
     </mat-form-field><br>
     <mat-form-field>
-      จำนวน : <input matInput>
+      จำนวน : <input matInput name = "amount" [(ngModel)]="withdraw.amount">
     </mat-form-field><br>
-    <button mat-stroked-button color="primary">เบิก</button>
+    <button type="submit" mat-stroked-button color="primary">เบิก</button>
   </form>
 </div>
