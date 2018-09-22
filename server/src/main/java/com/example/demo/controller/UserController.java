@@ -6,6 +6,8 @@ import java.util.Optional;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("http://localhost:4200")
 public class UserController{
     private UserRepository repo;
 

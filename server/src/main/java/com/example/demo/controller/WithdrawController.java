@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/withdraw")
+@CrossOrigin("http://localhost:4200")
 public class WithdrawController{
     private WithDrawRepository repo;
 
@@ -35,7 +35,6 @@ public class WithdrawController{
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    @CrossOrigin(origins = "http://localhost:5500")
     public String Add(Withdraw withdraws){
         repo.save(withdraws);
 
