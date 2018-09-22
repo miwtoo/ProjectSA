@@ -24,10 +24,6 @@ public class Item {
     @ManyToOne
     @JoinColumn(name="type_id")
     private TypeList type;
-    
-    @OneToMany(mappedBy = "item_id")
-    @JsonIgnore
-    private List<TakeIn> takein = new ArrayList<>();
 
     @OneToMany(mappedBy = "item_id")
     @JsonIgnore
