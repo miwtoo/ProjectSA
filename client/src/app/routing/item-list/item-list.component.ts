@@ -41,8 +41,8 @@ export class ItemListComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
-            id: data[index].item_id,
-            name: data[index].item_name,
+            id: data[index].itemId,
+            name: data[index].itemName,
             type: data[index].type.type,
             price: data[index].price,
             amount: data[index].amount

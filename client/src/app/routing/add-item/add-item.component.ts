@@ -43,7 +43,7 @@ export class AddItemComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           this.typelists.push({
-            value: data[index].type_id, 
+            value: data[index].typeId, 
             viewValue: data[index].type
           })
 

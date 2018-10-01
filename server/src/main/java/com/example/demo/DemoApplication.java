@@ -20,12 +20,9 @@ public class DemoApplication {
     ApplicationRunner init(TypeListRepository typeListRepository, ItemRepository itemRepository, UserRepository userRepository, TakeInRepository takeInRepository, WithDrawRepository withDrawRepository) {
         return args -> {
 
-            
-            Stream.of("เวชสำอาง/ครีมบำรุงผิว","ผลิตภัณฑ์เสริมอาหาร","สมุนไพรยาแผนโบราณ").forEach(name -> {
-                TypeList allType = new TypeList();
-                allType.setType(name);
-                typeListRepository.save(allType);
-            });
+            typeListRepository.save(new TypeList("เวชสำอาง/ครีมบำรุงผิว"));
+            typeListRepository.save(new TypeList("ผลิตภัณฑ์เสริมอาหาร"));
+            typeListRepository.save(new TypeList("สมุนไพรยาแผนโบราณ"));
 			typeListRepository.findAll().forEach(System.out::println);
 
 

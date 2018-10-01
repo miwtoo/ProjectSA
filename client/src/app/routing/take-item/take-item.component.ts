@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient,HttpParams } from '@angular/common/http';
+import {dateformat} from 'dateformat';
 
 @Component({
   selector: 'app-take-item',
@@ -13,7 +14,7 @@ export class TakeItemComponent implements OnInit {
 
 
   onClickSubmit(data) {
-    let dateFormat = require('dateformat');
+    let dateFormat = dateformat;
     let now = new Date();
 
     const body = new HttpParams()
