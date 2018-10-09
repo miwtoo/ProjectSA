@@ -1,11 +1,9 @@
-package com.example.demo.repository;
+package com.cpe.sa.main.repository;
 
-import com.example.demo.entity.Item;
+import com.cpe.sa.main.entity.Unit;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-    public
-    interface ItemRepository extends JpaRepository<Item, Long> {
-}
+public interface UnitRepository extends JpaRepository<Unit, Long> {}

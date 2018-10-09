@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.cpe.sa.main.entity;
 
 
 import java.util.ArrayList;
@@ -12,27 +12,26 @@ import lombok.*;
 
 @Entity
 @Getter @Setter
-@Table(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long user_id;
+    private Long id;
 
-    private String user_name;
+    private String userName;
     private String position;
 
-    @OneToMany(mappedBy = "user_id")
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private List<Withdraw> withdraw = new ArrayList<>();
+    private List<History> histories = new ArrayList<>();
 
     protected User(){}
 
-    public User(Long user_id){
-        this.user_id = user_id;
+    public User(Long userId){
+        this.id = userId;
     }
 
-    public User(String user_name, String position){
-        this.user_name = user_name;
+    public User(String userName, String position){
+        this.userName = userName;
         this.position = position;
     }
 
