@@ -55,9 +55,9 @@ public class ItemController{
         return itemRepository.save(newItem);
     }
 
-    @PostMapping("/{itemId}")
-    public History newHistory(History newHistory,@PathVariable Long itemId, @RequestBody() Map<String,Object> body) {  
-        Optional<Item> item = itemRepository.findById(itemId);
+    @PostMapping()
+    public History newHistory(History newHistory, @RequestBody() Map<String,Object> body) {  
+        Optional<Item> item = itemRepository.findById((Long.valueOf( body.get("item").toString() )));
         
         Optional<User> user = userRepository.findById((Long.valueOf( body.get("user").toString() )));
         Optional<Type> type = typeRepository.findById(1L);
