@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient,HttpParams } from '@angular/common/http';
+import { log } from 'util';
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
@@ -8,19 +9,12 @@ import {HttpClient,HttpParams } from '@angular/common/http';
 })
 export class AddItemComponent implements OnInit {
 
-  typelists = [];
+  categorys = [];
 
   onClickSubmit(data) {
-
-    const body = new HttpParams()
-    .set('item_name', data.item_name.toString())
-    .set('type.type_id', data.type_id.toString())
-    .set('price', data.price.toString())
-    .set('amount', data.amount.toString())
-
-    console.log(body.toString());
-
-    this.http.post("http://localhost:8080/item",body.toString(),{headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')}).subscribe(
+    console.log(data);
+    
+     this.http.post("http://localhost:8080/item/" + "/" + data.item_name + "/" +  data.price + "/" + data.categorys,"").subscribe(
       data => {
         console.log("POST Request is successful ", data);
       },
@@ -34,17 +28,17 @@ export class AddItemComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.typelists.push(
+    this.categorys.push(
       
     )
 
-    this.http.get("http://localhost:8080/typelist").subscribe(
+    this.http.get("http://localhost:8080/category").subscribe(
       data => {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
-          this.typelists.push({
-            value: data[index].typeId, 
-            viewValue: data[index].type
+          this.categorys.push({
+            value: data[index].id, 
+            viewValue: data[index].name
           })
 
 

@@ -7,7 +7,6 @@ export interface PeriodicElement {
   name: string;
   type: string;
   price: number;
-  amount: number;
 }
 
 
@@ -19,7 +18,7 @@ export interface PeriodicElement {
 export class ItemListComponent implements OnInit {
    
 
-  displayedColumns: string[] = ['id', 'name', 'type', 'price','amount'];
+  displayedColumns: string[] = ['id', 'name', 'type', 'price'];
   dataSource = new MatTableDataSource();
 
  
@@ -41,11 +40,10 @@ export class ItemListComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
-            id: data[index].itemId,
+            id: data[index].id,
             name: data[index].itemName,
-            type: data[index].type.type,
-            price: data[index].price,
-            amount: data[index].amount
+            type: data[index].category.name,
+            price: data[index].price
           })
 
 
