@@ -10,10 +10,10 @@ import { RouterModule, Routes } from '@angular/router';
 import {LayoutModule} from '@angular/cdk/layout';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { AddItemComponent } from './routing/add-item/add-item.component';
-import { ItemListComponent } from './routing/item-list/item-list.component';
-import { TakeItemComponent } from './routing/take-item/take-item.component';
-import { HistoryComponent } from './routing/history/history.component';
+import { AddItemComponent } from './warehouse/add-item/add-item.component';
+import { ItemListComponent } from './warehouse/item-list/item-list.component';
+import { TakeItemComponent } from './warehouse/take-item/take-item.component';
+import { HistoryComponent } from './warehouse/history/history.component';
 
 
 const appRoutes: Routes = [
