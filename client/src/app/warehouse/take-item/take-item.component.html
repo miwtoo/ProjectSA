@@ -6,14 +6,21 @@
   <form #withdraw = "ngForm"  (ngSubmit) = "onClickSubmit(withdraw.value)" >
     
     <mat-form-field>
-      รหัสผู้เบิก : <input matInput name ="user_id" [(ngModel)]="withdraw.user_id">
+      รหัสผู้เบิก : <input matInput name ="user" [(ngModel)]="withdraw.user_id">
     </mat-form-field><br>
     <mat-form-field>
-      รหัสสินค้า : <input matInput name ="item_id"  [(ngModel)]="withdraw.item_id">
+      รหัสสินค้า : <input matInput name ="item"  [(ngModel)]="withdraw.item_id">
     </mat-form-field><br>
     <mat-form-field>
       จำนวน : <input matInput name = "amount" [(ngModel)]="withdraw.amount">
-    </mat-form-field><br>
+    </mat-form-field>
+    <mat-form-field>
+      หน่วย: <mat-select name ="unit" [(ngModel)]="withdraw.units">
+         <mat-option *ngFor="let unit of units" [value]="unit.value">
+           {{unit.viewValue}}
+         </mat-option>
+       </mat-select>
+     </mat-form-field><br>
     <button type="submit" mat-stroked-button color="primary">เบิก</button>
   </form>
 </div>

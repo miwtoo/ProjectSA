@@ -5,6 +5,7 @@ export interface PeriodicElement {
   name: string;
   itemName:string;
   amount: number;
+  unit:String;
   time: Date;
   date: Date;
 }
@@ -17,7 +18,7 @@ export interface PeriodicElement {
 export class HistoryComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['name', 'itemName', 'amount',  'date', 'time'];
+  displayedColumns: string[] = ['name', 'itemName', 'amount','unit',  'date', 'time'];
   dataSource;
 
   constructor(private http: HttpClient) { }
@@ -27,14 +28,15 @@ export class HistoryComponent implements OnInit {
    
 
     
-    this.http.get("http://localhost:8080/withdraw").subscribe(
+    this.http.get("http://localhost:8080/history").subscribe(
       data => {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
-            name: data[index].userId.userName,
-            itemName: data[index].itemId.itemName,
-            amount: data[index].withdraw_amount,
+            name: data[index].user.userName,
+            itemName: data[index].item.itemName,
+            amount: data[index].amount,
+            unit: data[index].unit.name,
             time: dateformat( new Date(data[index].date), "h:MM:ss TT"),
             date: dateformat( new Date(data[index].date), "dd mmmm yyyy")
           })

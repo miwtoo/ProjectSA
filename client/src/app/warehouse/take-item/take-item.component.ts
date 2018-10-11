@@ -11,27 +11,23 @@ import {dateformat} from 'dateformat';
 
 
 export class TakeItemComponent implements OnInit {
-
+  units = [];
 
   onClickSubmit(data) {
-    let dateFormat = dateformat;
-    let now = new Date();
+    //let dateFormat = dateformat;
+    //let now = new Date();
 
-    const body = new HttpParams()
-    .set('user_id', data.user_id.toString())
-    .set('item_id', data.item_id.toString())
-    .set('amount', data.amount.toString())
-    .set('time', dateFormat(now, "HH:MM:ss TT"))
-    .set('date', dateFormat(now, "dd mmmm yyyy"));
+    console.log(data);
 
-    console.log(body.toString());
-
-    this.http.post("http://localhost:8080/withdraw",body.toString(),{headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')}).subscribe(
+    this.http.post("http://localhost:8080/history",data).subscribe(
+      
       data => {
         console.log("POST Request is successful ", data);
+        alert("สำเร็จ")
       },
       error => {
         console.log("Error", error);
+        alert("ผิดพลาด " + error)
       }
 
     );
@@ -43,6 +39,25 @@ export class TakeItemComponent implements OnInit {
   ngOnInit() {
 
     
+  
+      this.http.get("http://localhost:8080/unit").subscribe(
+        data => {
+          console.log("GET Request is successful ", data);
+          for (let index = 0; index < data["length"]; index++) {
+            this.units.push({
+              value: data[index].id,
+              viewValue: data[index].name
+            })
+  
+  
+          }
+          //console.log(ELEMENT_DATA);
+        },
+        error => {
+          console.log("Error", error);
+        }
+  
+      );
 
   }
 
