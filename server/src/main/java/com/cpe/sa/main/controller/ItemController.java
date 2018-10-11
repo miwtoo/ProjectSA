@@ -11,11 +11,9 @@ import com.cpe.sa.main.entity.History;
 import com.cpe.sa.main.entity.Item;
 import com.cpe.sa.main.entity.Unit;
 import com.cpe.sa.main.entity.User;
-import com.cpe.sa.main.entity.Type;
 import com.cpe.sa.main.repository.CategoryRepository;
 import com.cpe.sa.main.repository.HistoryRepository;
 import com.cpe.sa.main.repository.ItemRepository;
-import com.cpe.sa.main.repository.TypeRepository;
 import com.cpe.sa.main.repository.UnitRepository;
 import com.cpe.sa.main.repository.UserRepository;
 
@@ -36,7 +34,6 @@ public class ItemController{
     @Autowired private CategoryRepository categoryRepository;
     @Autowired private HistoryRepository historyRepository;
     @Autowired private UserRepository userRepository;
-    @Autowired private TypeRepository typeRepository;
     @Autowired private UnitRepository unitRepository;
 
     @GetMapping()
@@ -60,7 +57,6 @@ public class ItemController{
         Optional<Item> item = itemRepository.findById((Long.valueOf( body.get("item").toString() )));
         
         Optional<User> user = userRepository.findById((Long.valueOf( body.get("user").toString() )));
-        Optional<Type> type = typeRepository.findById(1L);
         Optional<Unit> unit = unitRepository.findById((Long.valueOf( body.get("unit").toString() )));
 
         
@@ -68,7 +64,6 @@ public class ItemController{
         newHistory.setItem(item.get());
 
         newHistory.setUser(user.get());
-        newHistory.setType(type.get());
         newHistory.setUnit(unit.get());
         
         newHistory.setAmount( Float.valueOf(body.get("amount").toString()));

@@ -26,9 +26,6 @@ public class History {
     private Item item;
 
     @ManyToOne()
-    private Type type;
-
-    @ManyToOne()
     private Unit unit;
 
     /* public void setUser(Long id){
