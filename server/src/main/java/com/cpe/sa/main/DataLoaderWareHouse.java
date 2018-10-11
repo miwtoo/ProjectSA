@@ -38,8 +38,8 @@ public class DataLoaderWareHouse implements ApplicationRunner {
         unitRepository.save(new Unit("แผง"));
         unitRepository.findAll().forEach(System.out::println);
 
-        typeRepository.save(new Type("เพิ่มสินค้า"));
-        typeRepository.save(new Type("เบิกสินค้า"));
+        typeRepository.save(new Type("นำเข้า"));
+        typeRepository.save(new Type("เบิก"));
         typeRepository.findAll().forEach(System.out::println);
 
         itemRepository.save(new Item("Item 1", 123.2f, 1L));

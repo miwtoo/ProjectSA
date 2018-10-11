@@ -11,10 +11,10 @@ export class AddItemComponent implements OnInit {
 
   categorys = [];
 
-  onClickSubmit(data) {
-    console.log(data);
+  onClickSubmit(body) {
+    console.log(body);
 
-    this.http.post("http://localhost:8080/item/" + "/" + data.item_name + "/" + data.price + "/" + data.categorys, "").subscribe(
+    this.http.post("http://localhost:8080/item/" + "/" + body.item_name + "/" + body.price + "/" + body.categorys, "").subscribe(
       data => {
         console.log("POST Request is successful ", data);
       },
@@ -33,12 +33,12 @@ export class AddItemComponent implements OnInit {
     )
 
     this.http.get("http://localhost:8080/category").subscribe(
-      data => {
-        console.log("GET Request is successful ", data);
-        for (let index = 0; index < data["length"]; index++) {
+      body => {
+        console.log("GET Request is successful ", body);
+        for (let index = 0; index < body["length"]; index++) {
           this.categorys.push({
-            value: data[index].id,
-            viewValue: data[index].name
+            value: body[index].id,
+            viewValue: body[index].name
           })
 
 

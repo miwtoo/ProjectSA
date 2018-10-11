@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
-import {HttpClient,HttpParams } from '@angular/common/http';
-import {dateformat} from 'dateformat';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { dateformat } from 'dateformat';
 
 @Component({
   selector: 'app-take-item',
@@ -12,6 +12,7 @@ import {dateformat} from 'dateformat';
 
 export class TakeItemComponent implements OnInit {
   units = [];
+  types = [];
 
   onClickSubmit(data) {
     //let dateFormat = dateformat;
@@ -19,8 +20,8 @@ export class TakeItemComponent implements OnInit {
 
     console.log(data);
 
-    this.http.post("http://localhost:8080/history",data).subscribe(
-      
+    this.http.post("http://localhost:8080/history", data).subscribe(
+
       data => {
         console.log("POST Request is successful ", data);
         alert("สำเร็จ")
@@ -34,30 +35,38 @@ export class TakeItemComponent implements OnInit {
 
     console.log(data)
   }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-
-    
-  
-      this.http.get("http://localhost:8080/unit").subscribe(
-        data => {
-          console.log("GET Request is successful ", data);
-          for (let index = 0; index < data["length"]; index++) {
-            this.units.push({
-              value: data[index].id,
-              viewValue: data[index].name
-            })
-  
-  
-          }
-          //console.log(ELEMENT_DATA);
-        },
-        error => {
-          console.log("Error", error);
+    this.http.get("http://localhost:8080/unit").subscribe(
+      data => {
+        console.log("GET Request is successful ", data);
+        for (let index = 0; index < data["length"]; index++) {
+          this.units.push({
+            value: data[index].id,
+            viewValue: data[index].name
+          })
         }
-  
-      );
+      },
+      error => {
+        console.log("Error", error);
+      }
+    );
+
+    this.http.get("http://localhost:8080/type").subscribe(
+      data => {
+        console.log("GET Request is successful ", data);
+        for (let index = 0; index < data["length"]; index++) {
+          this.types.push({
+            value: data[index].id,
+            viewValue: data[index].name
+          })
+        }
+      },
+      error => {
+        console.log("Error", error);
+      }
+    );
 
   }
 

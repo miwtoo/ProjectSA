@@ -3,7 +3,6 @@ package com.cpe.sa.main.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.sql.Time;
 import java.util.Optional;
 
 import com.cpe.sa.main.entity.History;
@@ -72,7 +71,7 @@ public class HistoryController{
         Optional<Item> item = itemRepository.findById((Long.valueOf( body.get("item").toString() )));
         
         Optional<User> user = userRepository.findById((Long.valueOf( body.get("user").toString() )));
-        Optional<Type> type = typeRepository.findById(2L);
+        Optional<Type> type = typeRepository.findById((Long.valueOf( body.get("type").toString() )));
         Optional<Unit> unit = unitRepository.findById((Long.valueOf( body.get("unit").toString() )));
 
         

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
 import dateformat from 'dateformat';
 export interface PeriodicElement {
+  type:String;
   name: string;
   itemName:string;
   amount: number;
@@ -18,7 +19,7 @@ export interface PeriodicElement {
 export class HistoryComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['name', 'itemName', 'amount','unit',  'date', 'time'];
+  displayedColumns: string[] = ['type' ,'name', 'itemName', 'amount','unit',  'date', 'time'];
   dataSource;
 
   constructor(private http: HttpClient) { }
@@ -33,6 +34,7 @@ export class HistoryComponent implements OnInit {
         console.log("GET Request is successful ", data);
         for (let index = 0; index < data["length"]; index++) {
           ELEMENT_DATA.push({
+            type: data[index].type.name,
             name: data[index].user.userName,
             itemName: data[index].item.itemName,
             amount: data[index].amount,

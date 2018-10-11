@@ -19,7 +19,6 @@ import com.cpe.sa.main.repository.TypeRepository;
 import com.cpe.sa.main.repository.UnitRepository;
 import com.cpe.sa.main.repository.UserRepository;
 
-import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,6 +44,11 @@ public class ItemController{
         return itemRepository.findAll();
     }
 
+    @GetMapping("/name")
+    public Item itemsName(@PathVariable String name){
+        return itemRepository.findByItemName(name);
+    }
+
     @PostMapping("/{itemName}/{price}/{categoryId}")
     public Item newItem(Item newItem, @PathVariable String itemName,@PathVariable Float price, @PathVariable Long categoryId) {
         Optional<Category> category = categoryRepository.findById(categoryId);
@@ -55,30 +59,5 @@ public class ItemController{
 
         return itemRepository.save(newItem);
     }
-<<<<<<< HEAD
-=======
 
-    @PostMapping()
-    public History newHistory(History newHistory, @RequestBody() Map<String,Object> body) {  
-        Optional<Item> item = itemRepository.findById((Long.valueOf( body.get("item").toString() )));
-        
-        Optional<User> user = userRepository.findById((Long.valueOf( body.get("user").toString() )));
-        Optional<Type> type = typeRepository.findById(1L);
-        Optional<Unit> unit = unitRepository.findById((Long.valueOf( body.get("unit").toString() )));
-
-        
-
-        newHistory.setItem(item.get());
-
-        newHistory.setUser(user.get());
-        newHistory.setType(type.get());
-        newHistory.setUnit(unit.get());
-        
-        newHistory.setAmount( Float.valueOf(body.get("amount").toString()));
-        newHistory.setDate(new Date());
-        newHistory.setTime(new Date());
-
-        return historyRepository.save(newHistory);
-    }
->>>>>>> parent of e508829... remove type
 }
