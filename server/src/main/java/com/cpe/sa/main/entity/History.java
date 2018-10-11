@@ -1,5 +1,6 @@
 package com.cpe.sa.main.entity;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -13,11 +14,7 @@ public class History {
     private Long id;
     
     private Float amount; // ใช้ int แล้ว error ว่าเห็นเป็น null
-    @Temporal(TemporalType.DATE)
     private Date date;
-
-    @Temporal(TemporalType.TIME)
-    private Date time;
 
     @ManyToOne()
     private User user;
@@ -28,26 +25,10 @@ public class History {
     @ManyToOne()
     private Unit unit;
 
-    /* public void setUser(Long id){
-         User user = new User();
-         user.setId(id);
+    protected History(){}
 
-         this.user = user;
+    public History(Long userId, Long itemId , Long unitId , String date, String time , Float amount){
+        this.user = new User(userId);
     }
-
-
-   public void setType(Long id){
-        Type type = new Type();
-        type.setId(id);
-
-        this.type = type;
-    }
-
-    public void setUnit(Long id){
-        Unit unit = new Unit();
-        unit.setId(id);
-
-        this.unit = unit;
-    } */
 
 }

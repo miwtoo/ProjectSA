@@ -3,6 +3,7 @@ package com.cpe.sa.main.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.sql.Time;
 import java.util.Optional;
 
 import com.cpe.sa.main.entity.History;
@@ -13,6 +14,7 @@ import com.cpe.sa.main.repository.HistoryRepository;
 import com.cpe.sa.main.repository.ItemRepository;
 import com.cpe.sa.main.repository.UnitRepository;
 import com.cpe.sa.main.repository.UserRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -77,8 +79,8 @@ public class HistoryController{
         newHistory.setUnit(unit.get());
         
         newHistory.setAmount( Float.valueOf(body.get("amount").toString()));
+
         newHistory.setDate(new Date());
-        newHistory.setTime(new Date());
 
         return historyRepository.save(newHistory);
     }
