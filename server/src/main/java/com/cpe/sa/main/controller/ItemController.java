@@ -11,9 +11,11 @@ import com.cpe.sa.main.entity.History;
 import com.cpe.sa.main.entity.Item;
 import com.cpe.sa.main.entity.Unit;
 import com.cpe.sa.main.entity.User;
+import com.cpe.sa.main.entity.Type;
 import com.cpe.sa.main.repository.CategoryRepository;
 import com.cpe.sa.main.repository.HistoryRepository;
 import com.cpe.sa.main.repository.ItemRepository;
+import com.cpe.sa.main.repository.TypeRepository;
 import com.cpe.sa.main.repository.UnitRepository;
 import com.cpe.sa.main.repository.UserRepository;
 
@@ -35,6 +37,7 @@ public class ItemController{
     @Autowired private CategoryRepository categoryRepository;
     @Autowired private HistoryRepository historyRepository;
     @Autowired private UserRepository userRepository;
+    @Autowired private TypeRepository typeRepository;
     @Autowired private UnitRepository unitRepository;
 
     @GetMapping()
@@ -52,4 +55,30 @@ public class ItemController{
 
         return itemRepository.save(newItem);
     }
+<<<<<<< HEAD
+=======
+
+    @PostMapping()
+    public History newHistory(History newHistory, @RequestBody() Map<String,Object> body) {  
+        Optional<Item> item = itemRepository.findById((Long.valueOf( body.get("item").toString() )));
+        
+        Optional<User> user = userRepository.findById((Long.valueOf( body.get("user").toString() )));
+        Optional<Type> type = typeRepository.findById(1L);
+        Optional<Unit> unit = unitRepository.findById((Long.valueOf( body.get("unit").toString() )));
+
+        
+
+        newHistory.setItem(item.get());
+
+        newHistory.setUser(user.get());
+        newHistory.setType(type.get());
+        newHistory.setUnit(unit.get());
+        
+        newHistory.setAmount( Float.valueOf(body.get("amount").toString()));
+        newHistory.setDate(new Date());
+        newHistory.setTime(new Date());
+
+        return historyRepository.save(newHistory);
+    }
+>>>>>>> parent of e508829... remove type
 }

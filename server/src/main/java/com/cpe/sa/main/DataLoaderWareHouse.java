@@ -15,6 +15,7 @@ public class DataLoaderWareHouse implements ApplicationRunner {
     @Autowired private CategoryRepository categoryRepository;
     @Autowired private UserRepository userRepository;
     @Autowired private UnitRepository unitRepository;
+    @Autowired private TypeRepository typeRepository;
     @Autowired private ItemRepository itemRepository;
 
 
@@ -36,6 +37,10 @@ public class DataLoaderWareHouse implements ApplicationRunner {
         unitRepository.save(new Unit("เม็ด"));
         unitRepository.save(new Unit("แผง"));
         unitRepository.findAll().forEach(System.out::println);
+
+        typeRepository.save(new Type("เพิ่มสินค้า"));
+        typeRepository.save(new Type("เบิกสินค้า"));
+        typeRepository.findAll().forEach(System.out::println);
 
         itemRepository.save(new Item("Item 1", 123.2f, 1L));
         itemRepository.save(new Item("Item 2", 456.1f, 1L));

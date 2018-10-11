@@ -23,6 +23,9 @@ public class History {
     private Item item;
 
     @ManyToOne()
+    private Type type;
+
+    @ManyToOne()
     private Unit unit;
 
     protected History(){}
